@@ -7,7 +7,9 @@
 
 
 class MoneyClass {
-
+public:
+private:
+    int _value;
 };
 
 
