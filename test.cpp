@@ -34,6 +34,11 @@ TEST_CASE("MoneyClass"){
         output<<twentyBucks;
         REQUIRE(output.str()=="$20.00");
     }
+    SECTION("Only Cents"){
+        MoneyClass fiftyCents(0,50);
+        output<<fiftyCents;
+        REQUIRE(output.str()=="$0.50");
+    }
     SECTION("Addition Operators"){
         bigNumber+=smallNumber;
         REQUIRE(bigNumber.getValue()==346472);
