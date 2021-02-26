@@ -12,7 +12,7 @@ class MoneyClass {
     friend MoneyClass operator+(MoneyClass left,const MoneyClass &right);
     friend MoneyClass operator-(const MoneyClass &right);
     friend MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
-    friend MoneyClass operator*(const MoneyClass& left,const MoneyClass& right);
+    friend MoneyClass operator*(MoneyClass left,const MoneyClass& right);
     friend MoneyClass operator/(MoneyClass left,const MoneyClass& right);
     friend bool operator==(const MoneyClass & left,const MoneyClass& right);
     friend bool operator<(const MoneyClass & left,const MoneyClass& right);
