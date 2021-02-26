@@ -11,6 +11,7 @@ class MoneyClass {
     friend std::ostream& operator<<(std::ostream & os,const MoneyClass &right);
     friend MoneyClass operator+(MoneyClass left,const MoneyClass &right);
     friend MoneyClass operator-(const MoneyClass &right);
+    friend MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
 public:
     MoneyClass & operator+=(const MoneyClass& right);
     MoneyClass & operator-=(const MoneyClass& right);
