@@ -47,3 +47,7 @@ MoneyClass & MoneyClass::operator-=(const MoneyClass& right){
     return *this;
 }
 
+int MoneyClass::getValue()const {
+    return _value;
+}
+

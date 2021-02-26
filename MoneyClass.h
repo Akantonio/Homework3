@@ -17,6 +17,7 @@ public:
     MoneyClass();
     MoneyClass(double amount);
     MoneyClass(int dollar,int cents=0);
+    int getValue() const;
 private:
     int _value;
 };
