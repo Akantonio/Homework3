@@ -3,7 +3,7 @@
 //
 
 #include "MoneyClass.h"
-#include <iomanip>
+
 
 Money::Money(): _value(0) {
 }
