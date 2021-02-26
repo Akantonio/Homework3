@@ -12,8 +12,8 @@ TEST_CASE("A Simple Tokenizer"){
 
 TEST_CASE("MoneyClass"){
     MoneyClass total;
-    MoneyClass ten(10);
-    MoneyClass five(5);
+    MoneyClass tenBucks(10);
+    MoneyClass fiveBucks(5);
 
     MoneyClass bigNumber(3452,22);
     MoneyClass smallNumber(12,50);
@@ -42,30 +42,30 @@ TEST_CASE("MoneyClass"){
     SECTION("Addition Operators"){
         bigNumber+=smallNumber;
         REQUIRE(bigNumber.getValue()==346472);
-        total = ten + five;
+        total = tenBucks + fiveBucks;
         REQUIRE(total.getValue()==1500);
     }
     SECTION("Subtraction Operators"){
         bigNumber-=smallNumber;
         REQUIRE(bigNumber.getValue()==343972);
-        total = ten-five;
+        total = tenBucks - fiveBucks;
         REQUIRE(total.getValue()==500);
     }
     SECTION("Multiplication Operators"){
         smallNumber*=smallNumber;
         REQUIRE(smallNumber.getValue()==1562500);
-        total = ten * five;
+        total = tenBucks * fiveBucks;
         REQUIRE(total.getValue()==5000);
     }
     SECTION("Division Operators"){
         smallNumber/=smallNumber;
         REQUIRE(smallNumber.getValue()==1);
-        total= ten / five;
+        total= tenBucks / fiveBucks;
         REQUIRE(total.getValue()==2);
     }
     SECTION("Boolean Operators"){
-        REQUIRE(ten==ten);
-        REQUIRE(five<ten);
+        REQUIRE(tenBucks == tenBucks);
+        REQUIRE(fiveBucks < tenBucks);
     }
 }
 

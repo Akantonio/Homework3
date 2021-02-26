@@ -14,7 +14,8 @@ class MoneyClass {
     friend MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
     friend MoneyClass operator*(const MoneyClass& left,const MoneyClass& right);
     friend MoneyClass operator/(MoneyClass left,const MoneyClass& right);
-
+    friend bool operator==(const MoneyClass & left,const MoneyClass& right);
+    friend bool operator<(const MoneyClass & left,const MoneyClass& right);
 public:
     MoneyClass & operator+=(const MoneyClass& right);
     MoneyClass & operator-=(const MoneyClass& right);

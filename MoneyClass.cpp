@@ -44,6 +44,12 @@ MoneyClass operator*(MoneyClass left,const MoneyClass& right){
 MoneyClass operator/(MoneyClass left,const MoneyClass& right){
     return left/=right;
 }
+bool operator==(const MoneyClass & left,const MoneyClass& right){
+    return left._value == right._value;
+}
+bool operator<(const MoneyClass & left,const MoneyClass& right){
+    return left._value < right._value;
+}
 
 
 MoneyClass & MoneyClass::operator+=(const MoneyClass &right) {
