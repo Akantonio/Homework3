@@ -13,7 +13,11 @@ Money::Money(double amount){
 }
 
 Money::Money(int dollar, int cents){
-    _value = dollar*100 + cents;
+    if(cents<0){
+        _value= -1*(dollar*100-cents);
+    }else {
+        _value = dollar * 100 + cents;
+    }
 }
 
 
@@ -21,11 +25,19 @@ std::ostream &operator<<(std::ostream & os, const Money &right) {
     if(right._value==0){
         return os<<"$0.00";
     }
-    double temp = right._value/100.0;
+    int dollars = right._value/100.0;
+    int cents= right._value%100;
     if(right._value<0){
-        return os<<"-$"<< -temp;
+        dollars*= -1;
+        cents
+        os<<"-$";
+    }else{
+        os<<"$";
     }
-    return os<<"$"<<temp;
+    if(cents>0) {
+        os << dollars << "." << cents;
+    }
+
 }
 Money operator+(Money left, const Money &right) {
     left+=right;
