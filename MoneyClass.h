@@ -8,27 +8,27 @@
 #include <iostream>
 
 
-class MoneyClass {
-    friend std::ostream& operator<<(std::ostream & os,const MoneyClass &right);
-    friend MoneyClass operator+(MoneyClass left,const MoneyClass &right);
-    friend MoneyClass operator-(const MoneyClass &right);
-    friend bool operator==(const MoneyClass & left,const MoneyClass& right);
-    friend bool operator<(const MoneyClass & left,const MoneyClass& right);
+class Money {
+    friend std::ostream& operator<<(std::ostream & os,const Money &right);
+    friend Money operator+(Money left,const Money &right);
+    friend Money operator-(const Money &right);
+    friend bool operator==(const Money & left,const Money& right);
+    friend bool operator<(const Money & left,const Money& right);
 public:
-    MoneyClass & operator+=(const MoneyClass& right);
-    MoneyClass & operator-=(const MoneyClass& right);
-    MoneyClass & operator*=(const MoneyClass& right);
-    MoneyClass & operator/=(const MoneyClass& right);
-    MoneyClass();
-    MoneyClass(double amount);
-    MoneyClass(int dollar,int cents=0);
+    Money & operator+=(const Money& right);
+    Money & operator-=(const Money& right);
+    Money & operator*=(const Money& right);
+    Money & operator/=(const Money& right);
+    Money();
+    Money(double amount);
+    Money(int dollar,int cents=0);
     int getValue() const;
 private:
     int _value;
 };
 
-MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
-MoneyClass operator*(MoneyClass left,const MoneyClass& right);
-MoneyClass operator/(MoneyClass left,const MoneyClass& right);
+Money operator-(const Money& left,const Money& right);
+Money operator*(Money left,const Money& right);
+Money operator/(Money left,const Money& right);
 
 #endif //HOMEWORK3_MONEYCLASS_H
