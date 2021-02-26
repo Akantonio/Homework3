@@ -39,6 +39,10 @@ MoneyClass operator-(const MoneyClass &right){
 MoneyClass operator-(const MoneyClass& left,const MoneyClass& right){
     return left + -right;
 }
+MoneyClass operator*(MoneyClass left,const MoneyClass& right){
+    left*=right;
+    return left;
+}
 
 MoneyClass & MoneyClass::operator+=(const MoneyClass &right) {
     _value = _value + right._value;
