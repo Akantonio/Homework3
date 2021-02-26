@@ -29,7 +29,7 @@ std::ostream &operator<<(std::ostream & os, const Money &right) {
     int cents= right._value%100;
     if(right._value<0){
         dollars*= -1;
-        cents
+        cents*=-1;
         os<<"-$";
     }else{
         os<<"$";
@@ -37,7 +37,7 @@ std::ostream &operator<<(std::ostream & os, const Money &right) {
     if(cents>0) {
         os << dollars << "." << cents;
     }
-
+    return os;
 }
 Money operator+(Money left, const Money &right) {
     left+=right;
