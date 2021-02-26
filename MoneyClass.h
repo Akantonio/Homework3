@@ -7,13 +7,11 @@
 
 #include <iostream>
 
+
 class MoneyClass {
     friend std::ostream& operator<<(std::ostream & os,const MoneyClass &right);
     friend MoneyClass operator+(MoneyClass left,const MoneyClass &right);
     friend MoneyClass operator-(const MoneyClass &right);
-    friend MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
-    friend MoneyClass operator*(MoneyClass left,const MoneyClass& right);
-    friend MoneyClass operator/(MoneyClass left,const MoneyClass& right);
     friend bool operator==(const MoneyClass & left,const MoneyClass& right);
     friend bool operator<(const MoneyClass & left,const MoneyClass& right);
 public:
@@ -29,5 +27,8 @@ private:
     int _value;
 };
 
+MoneyClass operator-(const MoneyClass& left,const MoneyClass& right);
+MoneyClass operator*(MoneyClass left,const MoneyClass& right);
+MoneyClass operator/(MoneyClass left,const MoneyClass& right);
 
 #endif //HOMEWORK3_MONEYCLASS_H
