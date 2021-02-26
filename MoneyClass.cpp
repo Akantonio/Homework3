@@ -5,19 +5,19 @@
 #include "MoneyClass.h"
 #include <iomanip>
 
-MoneyClass::MoneyClass():_value(0) {
+Money::Money(): _value(0) {
 }
 
-MoneyClass::MoneyClass(double amount){
+Money::Money(double amount){
     _value= amount*100+0.5;
 }
 
-MoneyClass::MoneyClass(int dollar,int cents){
+Money::Money(int dollar, int cents){
     _value = dollar*100 + cents;
 }
 
 
-std::ostream &operator<<(std::ostream & os, const MoneyClass &right) {
+std::ostream &operator<<(std::ostream & os, const Money &right) {
     if(right._value==0){
         return os<<"$0.00";
     }
@@ -27,48 +27,61 @@ std::ostream &operator<<(std::ostream & os, const MoneyClass &right) {
     }
     return os<<"$"<<temp;
 }
-MoneyClass operator+(MoneyClass left, const MoneyClass &right) {
+Money operator+(Money left, const Money &right) {
     left+=right;
     return left;
 }
-MoneyClass operator-(const MoneyClass &right){
+Money operator-(const Money &right){
     return {-right._value};
 }
-MoneyClass operator-(const MoneyClass& left,const MoneyClass& right){
+Money operator-(const Money& left, const Money& right){
     return left + -right;
 }
-MoneyClass operator*(MoneyClass left,const MoneyClass& right){
+Money operator*(Money left, const Money& right){
     left*=right;
     return left;
 }
-MoneyClass operator/(MoneyClass left,const MoneyClass& right){
+Money operator/(Money left, const Money& right){
     return left/=right;
 }
-bool operator==(const MoneyClass & left,const MoneyClass& right){
+bool operator==(const Money & left, const Money& right){
     return left._value == right._value;
 }
-bool operator<(const MoneyClass & left,const MoneyClass& right){
+bool operator<(const Money & left, const Money& right){
     return left._value < right._value;
 }
 
 
-MoneyClass & MoneyClass::operator+=(const MoneyClass &right) {
+Money & Money::operator+=(const Money &right) {
     _value = _value + right._value;
     return *this;
 }
-MoneyClass & MoneyClass::operator-=(const MoneyClass& right){
+Money & Money::operator-=(const Money& right){
     *this = *this - right;
     return *this;
 }
-MoneyClass & MoneyClass::operator/=(const MoneyClass& right){
+Money & Money::operator/=(const Money& right){
     return *this *= {1/right._value};
 }
 
-int MoneyClass::getValue()const {
+int Money::getValue()const {
     return _value;
 }
-MoneyClass &MoneyClass::operator*=(const MoneyClass &right) {
+Money &Money::operator*=(const Money &right) {
     _value *= right._value;
     return *this;
 }
 
+
+bool operator!=(const Money & left, const Money& right){
+    return !(right==left);
+}
+bool operator>(const Money & left, const Money& right){
+    return right < left;
+}
+bool operator<=(const Money & left, const Money& right){
+    return !(right>left);
+}
+bool operator>=(const Money & left, const Money& right){
+    return !(right<left);
+}

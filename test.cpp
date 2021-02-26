@@ -10,18 +10,18 @@ TEST_CASE("A Simple Tokenizer"){
 
 }
 
-TEST_CASE("MoneyClass"){
-    MoneyClass total;
-    MoneyClass tenBucks(10);
-    MoneyClass fiveBucks(5);
+TEST_CASE("Money"){
+    Money total;
+    Money tenBucks(10);
+    Money fiveBucks(5);
 
-    MoneyClass bigNumber(3452,22);
-    MoneyClass smallNumber(12,50);
-    MoneyClass negativeNumber(-10);
+    Money bigNumber(3452, 22);
+    Money smallNumber(12, 50);
+    Money negativeNumber(-10);
     std::ostringstream output;
     SECTION("Zero Money") {
 
-        MoneyClass base;
+        Money base;
         output << base;
         REQUIRE(output.str() == "$0.00");
     }
@@ -30,12 +30,12 @@ TEST_CASE("MoneyClass"){
         REQUIRE(output.str() == "-$10.00");
     }
     SECTION("Non-zero Money"){
-        MoneyClass twentyBucks(20);
+        Money twentyBucks(20);
         output<<twentyBucks;
         REQUIRE(output.str()=="$20.00");
     }
     SECTION("Only Cents"){
-        MoneyClass fiftyCents(0,50);
+        Money fiftyCents(0, 50);
         output<<fiftyCents;
         REQUIRE(output.str()=="$0.50");
     }
