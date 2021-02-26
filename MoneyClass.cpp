@@ -28,12 +28,22 @@ std::ostream &operator<<(std::ostream & os, const MoneyClass &right) {
     return os<<"$"<<temp;
 }
 
+MoneyClass operator+(MoneyClass left, const MoneyClass &right) {
+    left+=right;
+    return left;
+}
+
+MoneyClass operator-(const MoneyClass &right){
+    return {-right._value};
+}
+
 MoneyClass &MoneyClass::operator+=(const MoneyClass &right) {
     _value = _value +right._value;
     return *this;
 }
 
-MoneyClass operator+(MoneyClass left, const MoneyClass &right) {
-    left+=right;
-    return left;
+MoneyClass & MoneyClass::operator-=(const MoneyClass& right){
+    *this = *this + -right;
+    return *this;
 }
+
