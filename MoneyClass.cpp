@@ -17,6 +17,17 @@ MoneyClass::MoneyClass(int dollar,int cents){
 }
 
 std::ostream &operator<<(std::ostream & os, const MoneyClass &right) {
+    if(right._value==0){
+        return os<<"$0.00";
+    }
     double temp = right._value/100.0;
-    return os<<"$"<< std::setprecision(5) << temp;
+    if(right._value<0){
+        return os<<"-$"<< -temp;
+    }
+    return os<<"$"<< std::setprecision(4) << temp;
+}
+
+MoneyClass &MoneyClass::operator+=(const MoneyClass &right) {
+    _value = _value +right._value;
+    return *this;
 }

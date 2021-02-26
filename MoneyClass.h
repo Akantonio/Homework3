@@ -10,9 +10,11 @@
 class MoneyClass {
     friend std::ostream& operator<<(std::ostream & os,const MoneyClass & right);
 public:
+    MoneyClass & operator+=(const MoneyClass& right);
     MoneyClass();
     MoneyClass(double amount);
     MoneyClass(int dollar,int cents);
+
 private:
     int _value;
 };
