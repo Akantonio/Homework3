@@ -15,6 +15,7 @@ class MoneyClass {
 public:
     MoneyClass & operator+=(const MoneyClass& right);
     MoneyClass & operator-=(const MoneyClass& right);
+    MoneyClass & operator*=(const MoneyClass& right);
     MoneyClass();
     MoneyClass(double amount);
     MoneyClass(int dollar,int cents=0);
