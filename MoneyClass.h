@@ -8,6 +8,7 @@
 
 class MoneyClass {
 public:
+    MoneyClass(double amount);
 private:
     int _value;
 };

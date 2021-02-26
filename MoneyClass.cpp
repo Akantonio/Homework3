@@ -3,3 +3,7 @@
 //
 
 #include "MoneyClass.h"
+
+MoneyClass::MoneyClass(double amount) {
+    _value= amount *100 +0.5;
+}

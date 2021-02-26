@@ -1,6 +1,8 @@
+#include "MoneyClass.h"
 #include <iostream>
 
 int main(int argc,char * argv[]) {
-    std::cout << "Hello, World!" << std::endl;
+    MoneyClass test(34.56);
+
     return 0;
 }
