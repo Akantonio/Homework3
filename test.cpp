@@ -15,11 +15,19 @@ TEST_CASE("MoneyClass"){
     MoneyClass smallNumber(12,50);
     MoneyClass negativeNumber(-10);
     std::ostringstream output;
-    SECTION("Money Output"){
+    SECTION("Zero Money") {
+
         MoneyClass base;
-        output<<base;
-        REQUIRE(output.str()=="$0.00");
-        REQUIRE(output.str()=="-$1.00");
+        output << base;
+        REQUIRE(output.str() == "$0.00");
+    }
+    SECTION("Negative Money") {
+        output << negativeNumber;
+        REQUIRE(output.str() == "-$10.00");
+    }
+    SECTION("Non-zero Money"){
+        MoneyClass twentyBucks(20);
+        output<<twentyBucks;
         REQUIRE(output.str()=="$20.00");
     }
     SECTION("Overloaded Operators"){
