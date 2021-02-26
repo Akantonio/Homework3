@@ -8,12 +8,14 @@
 #include <iostream>
 
 class MoneyClass {
-    friend std::ostream& operator<<(std::ostream & os,const MoneyClass & right);
+    friend std::ostream& operator<<(std::ostream & os,const MoneyClass &right);
+    friend MoneyClass operator+(MoneyClass left,const MoneyClass &right);
 public:
     MoneyClass & operator+=(const MoneyClass& right);
     MoneyClass();
     MoneyClass(double amount);
-    MoneyClass(int dollar,int cents);
+    MoneyClass(int dollar,int cents=0);
+
 
 private:
     int _value;
