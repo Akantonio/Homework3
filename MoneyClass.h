@@ -5,11 +5,14 @@
 #ifndef HOMEWORK3_MONEYCLASS_H
 #define HOMEWORK3_MONEYCLASS_H
 
+#include <iostream>
 
 class MoneyClass {
+    friend std::ostream& operator<<(std::ostream & os,const MoneyClass & right);
 public:
     MoneyClass(double amount);
 private:
+    double _realValue;
     int _value;
 };
 
